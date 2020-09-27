@@ -24120,9 +24120,26 @@ var Tracks = /*#__PURE__*/function (_Component) {
 
     _this = _super.call.apply(_super, [this].concat(args));
 
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      playing: false,
+      audio: null
+    });
+
     _defineProperty(_assertThisInitialized(_this), "playAudio", function (previewUrl) {
-      var audio = new Audio(previewUrl);
-      audio.play();
+      return function () {
+        var audio = new Audio(previewUrl);
+
+        if (!_this.state.playing) {
+          audio.play();
+
+          _this.setState({
+            playing: true,
+            audio: audio
+          });
+        } else {
+          _this.state.audio.pause();
+        }
+      };
     });
 
     return _this;
