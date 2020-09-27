@@ -8,7 +8,13 @@ class App extends Component {
   };
 
   render() {
-    return <div>React App</div>;
+    return (
+      <div>
+        <h2>Music Profession</h2>
+        <input placeholder='Search for an artist' />
+        <button>Search</button>
+      </div>
+    );
   }
 }
 

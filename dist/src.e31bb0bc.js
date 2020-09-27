@@ -24103,7 +24103,9 @@ var App = /*#__PURE__*/function (_Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/_react.default.createElement("div", null, "React App");
+      return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Music Profession"), /*#__PURE__*/_react.default.createElement("input", {
+        placeholder: "Search for an artist"
+      }), /*#__PURE__*/_react.default.createElement("button", null, "Search"));
     }
   }]);
 
