@@ -24103,6 +24103,10 @@ var Search = /*#__PURE__*/function (_Component) {
       }
     });
 
+    _defineProperty(_assertThisInitialized(_this), "searchArtist", function () {
+      _this.props.searchArtist(_this.state.artistQuery);
+    });
+
     return _this;
   }
 
@@ -24380,7 +24384,9 @@ var App = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       console.log('this.state', this.state);
-      return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Music Profession"), /*#__PURE__*/_react.default.createElement(_Search.default, null), /*#__PURE__*/_react.default.createElement(_Artist.default, {
+      return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Music Profession"), /*#__PURE__*/_react.default.createElement(_Search.default, {
+        searchArtist: this.searchArtist
+      }), /*#__PURE__*/_react.default.createElement(_Artist.default, {
         artist: this.state.artist
       }), /*#__PURE__*/_react.default.createElement(_Tracks.default, {
         tracks: this.state.tracks

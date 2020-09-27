@@ -32,7 +32,7 @@ class App extends Component {
     return (
       <div>
         <h2>Music Profession</h2>
-        <Search />
+        <Search searchArtist={this.searchArtist} />
         <Artist artist={this.state.artist} />
         <Tracks tracks={this.state.tracks} />
       </div>
