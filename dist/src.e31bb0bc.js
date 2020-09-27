@@ -24053,8 +24053,14 @@ var Artist = function Artist(_ref) {
       followers = artist.followers,
       genres = artist.genres;
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, name), /*#__PURE__*/_react.default.createElement("p", null, followers.total, " followers"), /*#__PURE__*/_react.default.createElement("p", null, genres.join(', ')), /*#__PURE__*/_react.default.createElement("img", {
-    src: images[0].url,
-    alt: "artist-profile"
+    src: images[0] && images[0].url,
+    alt: "artist-profile",
+    style: {
+      width: 200,
+      height: 200,
+      borderRadius: 100,
+      objectFit: 'cover'
+    }
   }));
 };
 
@@ -24302,7 +24308,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60368" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60913" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
