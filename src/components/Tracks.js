@@ -11,7 +11,8 @@ class Tracks extends Component {
 
           return (
             <div key={id}>
-              <img src={album.images[0].url} />
+              <img src={album.images[0].url} alt='track-image' />
+              <p>{name}</p>
             </div>
           );
         })}
@@ -19,3 +20,5 @@ class Tracks extends Component {
     );
   }
 }
+
+export default Tracks;
