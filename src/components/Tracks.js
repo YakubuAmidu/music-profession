@@ -7,7 +7,13 @@ class Tracks extends Component {
     return (
       <div>
         {traccks.map((track) => {
-          const { name, album } = traccks;
+          const { name, album } = tracck;
+
+          return (
+            <div key={id}>
+              <img src={album.images[0].url} />
+            </div>
+          );
         })}
       </div>
     );
