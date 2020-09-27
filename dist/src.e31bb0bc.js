@@ -24088,13 +24088,19 @@ var App = /*#__PURE__*/function (_Component) {
     _this = _super.call.apply(_super, [this].concat(args));
 
     _defineProperty(_assertThisInitialized(_this), "state", {
-      displayBio: false
+      artistQuery: ''
     });
 
-    _defineProperty(_assertThisInitialized(_this), "toggleDisplayBio", function () {
+    _defineProperty(_assertThisInitialized(_this), "updateArtistQuery", function (event) {
+      console.log('vent.target.value', event.target.value);
+
       _this.setState({
-        displayBio: !_this.state.displayBio
+        artistQuery: event.target.value
       });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "searchArtist", function () {
+      console.log('this.state', _this.state);
     });
 
     return _this;
@@ -24104,6 +24110,7 @@ var App = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Music Profession"), /*#__PURE__*/_react.default.createElement("input", {
+        onChange: this.updateArtistQuery,
         placeholder: "Search for an artist"
       }), /*#__PURE__*/_react.default.createElement("button", null, "Search"));
     }
@@ -24228,7 +24235,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50213" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50587" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
