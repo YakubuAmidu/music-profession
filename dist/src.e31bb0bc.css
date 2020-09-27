@@ -37,5 +37,14 @@ h5 {
   height: 250px;
 }
 
+.track-text {
+  position: absolute;
+  width: 250px;
+  bottom: 0;
+  background-color: black;
+  color: #fff;
+  padding: 5px;
+}
+
 
 /*# sourceMappingURL=/src.e31bb0bc.css.map */

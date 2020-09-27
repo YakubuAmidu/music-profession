@@ -24252,6 +24252,18 @@ var Tracks = /*#__PURE__*/function (_Component) {
       };
     });
 
+    _defineProperty(_assertThisInitialized(_this), "trackIcon", function (track) {
+      if (!track.preview_url) {
+        return /*#__PURE__*/_react.default.createElement("span", null, "N/A");
+      }
+
+      if (_this.state.playing && _this.state.playingPreviewUrl === track.preview_url) {
+        return /*#__PURE__*/_react.default.createElement("span", null, "| |");
+      }
+
+      return /*#__PURE__*/_react.default.createElement("span", null, "\u25B6");
+    });
+
     return _this;
   }
 
@@ -24276,7 +24288,9 @@ var Tracks = /*#__PURE__*/function (_Component) {
           className: "track-image"
         }), /*#__PURE__*/_react.default.createElement("p", {
           className: "track-text"
-        }, name));
+        }, name), /*#__PURE__*/_react.default.createElement("p", {
+          className: "track-icon"
+        }, _this2.trackIcon(track)));
       }));
     }
   }]);
