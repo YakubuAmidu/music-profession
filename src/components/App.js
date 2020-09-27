@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Artist from './Artist';
 
 const API_ADDRESS = 'https://spotify-api-wrapper.appspot.com';
 
@@ -15,12 +16,13 @@ class App extends Component {
     }
   };
 
-  searchArtist = () => {
-    fetch(`${API_ADDRESS}/artist/${this.state.artistQuery}`)
+  searchArtist = (artistQuery) => {
+    fetch(`${API_ADDRESS}/artist/${artistQuery}`)
       .then((response) => response.json())
       .then((json) => {
         if (json.artists.total > 0) {
-          const artist = json.atists.items[0];
+          const artist = json.artists.items[0];
+
           this.setState({ artist });
 
           fetch(`${API_ADDRESS}/artist/${artist.id}/top-tracks`)
@@ -44,6 +46,7 @@ class App extends Component {
           placeholder='Search for an artist'
         />
         <button onClick={this.searchArtist}>Search</button>
+        <Artist artist={this.state.artist} />
       </div>
     );
   }
