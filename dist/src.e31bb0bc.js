@@ -24071,6 +24071,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+var API_ADDRESS = 'https://spotify-api-wrapper.appspot.com';
+
 var App = /*#__PURE__*/function (_Component) {
   _inherits(App, _Component);
 
@@ -24099,8 +24101,18 @@ var App = /*#__PURE__*/function (_Component) {
       });
     });
 
+    _defineProperty(_assertThisInitialized(_this), "handleKeyPress", function (event) {
+      if (event.key === 'Enter') {
+        _this.searchArtist();
+      }
+    });
+
     _defineProperty(_assertThisInitialized(_this), "searchArtist", function () {
-      console.log('this.state', _this.state);
+      fetch("".concat(API_ADDRESS, "/artist/").concat(_this.state.artistQuery)).then(function (response) {
+        return response.json();
+      }).then(function (json) {
+        console.log('json', json);
+      });
     });
 
     return _this;
@@ -24111,8 +24123,11 @@ var App = /*#__PURE__*/function (_Component) {
     value: function render() {
       return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Music Profession"), /*#__PURE__*/_react.default.createElement("input", {
         onChange: this.updateArtistQuery,
+        onKeyPress: this.handleKeyPress,
         placeholder: "Search for an artist"
-      }), /*#__PURE__*/_react.default.createElement("button", null, "Search"));
+      }), /*#__PURE__*/_react.default.createElement("button", {
+        onClick: this.searchArtist
+      }, "Search"));
     }
   }]);
 
