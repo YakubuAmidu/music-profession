@@ -22,3 +22,17 @@ h4,
 h5 {
   font-family: EconomicaBold;
 }
+
+.track {
+  width: 250px;
+  height: 250px;
+  position: relative;
+  display: inline-block;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.track-image {
+  width: 250px;
+  height: 250px;
+}

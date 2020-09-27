@@ -24268,11 +24268,15 @@ var Tracks = /*#__PURE__*/function (_Component) {
             preview_url = track.preview_url;
         return /*#__PURE__*/_react.default.createElement("div", {
           key: id,
-          onClick: _this2.playAudio(preview_url)
+          onClick: _this2.playAudio(preview_url),
+          className: "track"
         }, /*#__PURE__*/_react.default.createElement("img", {
           src: album.images[0].url,
-          alt: "track-image"
-        }), /*#__PURE__*/_react.default.createElement("p", null, name));
+          alt: "track-image",
+          className: "track-image"
+        }), /*#__PURE__*/_react.default.createElement("p", {
+          className: "track-text"
+        }, name));
       }));
     }
   }]);
@@ -24381,9 +24385,13 @@ var App = /*#__PURE__*/function (_Component) {
   }
 
   _createClass(App, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.searchArtist('tashacobbs');
+    }
+  }, {
     key: "render",
     value: function render() {
-      console.log('this.state', this.state);
       return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Music Profession"), /*#__PURE__*/_react.default.createElement(_Search.default, {
         searchArtist: this.searchArtist
       }), /*#__PURE__*/_react.default.createElement(_Artist.default, {
