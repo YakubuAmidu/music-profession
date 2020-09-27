@@ -24139,6 +24139,7 @@ var App = /*#__PURE__*/function (_Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
+      console.log('this.state', this.state);
       return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Music Profession"), /*#__PURE__*/_react.default.createElement("input", {
         onChange: this.updateArtistQuery,
         onKeyPress: this.handleKeyPress,
