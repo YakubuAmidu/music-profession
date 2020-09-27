@@ -6,7 +6,6 @@ class App extends Component {
   state = { artistQuery: '', artist: null, tracks: [] };
 
   updateArtistQuery = (event) => {
-    console.log('vent.target.value', event.target.value);
     this.setState({ artistQuery: event.target.value });
   };
 
@@ -20,17 +19,13 @@ class App extends Component {
     fetch(`${API_ADDRESS}/artist/${this.state.artistQuery}`)
       .then((response) => response.json())
       .then((json) => {
-        console.log('json', json);
-
         if (json.artists.total > 0) {
           const artist = json.atists.items[0];
-
-          console.log('artist', artist);
           this.setState({ artist });
 
           fetch(`${API_ADDRESS}/artist/${artist.id}/top-tracks`)
             .then((response) => response.json())
-            .then((json) => console.log('tracks json', json))
+            .then((json) => this.setState({ tracks: json.tracks }))
             .catch((error) => alert(error.message));
         }
       })

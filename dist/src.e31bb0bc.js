@@ -24096,8 +24096,6 @@ var App = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "updateArtistQuery", function (event) {
-      console.log('vent.target.value', event.target.value);
-
       _this.setState({
         artistQuery: event.target.value
       });
@@ -24113,11 +24111,8 @@ var App = /*#__PURE__*/function (_Component) {
       fetch("".concat(API_ADDRESS, "/artist/").concat(_this.state.artistQuery)).then(function (response) {
         return response.json();
       }).then(function (json) {
-        console.log('json', json);
-
         if (json.artists.total > 0) {
           var artist = json.atists.items[0];
-          console.log('artist', artist);
 
           _this.setState({
             artist: artist
@@ -24126,7 +24121,9 @@ var App = /*#__PURE__*/function (_Component) {
           fetch("".concat(API_ADDRESS, "/artist/").concat(artist.id, "/top-tracks")).then(function (response) {
             return response.json();
           }).then(function (json) {
-            return console.log('tracks json', json);
+            return _this.setState({
+              tracks: json.tracks
+            });
           }).catch(function (error) {
             return alert(error.message);
           });
